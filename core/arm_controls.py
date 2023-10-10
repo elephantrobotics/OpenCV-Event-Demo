@@ -6,6 +6,12 @@ from core.utils import get_logger
 
 __logger = get_logger(__name__)
 
+# For raspberry pi
+if platform.system() == "Linux":
+    import RPi.GPIO as GPIO
+
+    GPIO.setmode(GPIO.BCM)
+
 
 def init_arm(arm: MyCobot):
     arm.send_angles(arm_idle_angle, 50)
@@ -72,8 +78,8 @@ def pump_on(arm: MyCobot):
         arm.set_basic_output(5, 0)
         time.sleep(0.05)
     elif platform.system() == "Linux":
-        # TODO
-        pass
+        GPIO.output(20, 0)
+        time.sleep(1)
 
 
 def pump_off(arm: MyCobot):
@@ -86,8 +92,12 @@ def pump_off(arm: MyCobot):
         arm.set_basic_output(2, 1)
         time.sleep(0.05)
     elif platform.system() == "Linux":
-        # TODO
-        pass
+        GPIO.output(20, 1)
+        time.sleep(0.05)
+        GPIO.output(21, 0)
+        time.sleep(1)
+        GPIO.output(21, 1)
+        time.sleep(0.05)
 
 
 def position_move(arm: MyCobot, x, y, z):
