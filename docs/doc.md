@@ -41,7 +41,13 @@
 
 ![](.doc_images/1304e072.png)
 
-### Test 6 Robot Coord Calc
+### Test 6 Serial Port
+
+测试本机可用的串口
+
+得到串口信息后写入到config.py中
+
+### Test 7 Robot Coord Calc
 
 测试机械臂点位计算的精度
 
@@ -51,32 +57,13 @@
 
 ![](.doc_images/a0eb22be.png)
 
-## 文件结构说明
-```shell
-.
-├── .gitignore
-├── README.md
-├── core
-│   ├── __init__.py
-│   ├── arm_controls.py 机械臂控制的简单封装
-│   ├── aruco_detector.py aruco识别器和相关可视化函数
-│   ├── camera.py 奥比相机的简单封装
-│   ├── config.py 配置参数
-│   ├── coord_calc.py 参数转换计算
-│   └── utils.py 各种工具
-├── docs
-│   ├── .doc_images
-│   └── doc.md 文档
-├── main.py
-├── reqiurements.txt
-└── tests
-    ├── test1_camera.py
-    ├── test2_aruco.py
-    ├── test3_crop.py
-    ├── test4_show_detect.py
-    ├── test5_detect_object_depth.py
-    └── test6_robot_coord_calc.py
-```
+## 连线方式
+### M5版本
+
+吸泵连接方式
+(红, 黑, 黄, 白) -> (5V, GND, 2, 5)
+![](.doc_images/a32bbf39.png)
+
 
 
 
