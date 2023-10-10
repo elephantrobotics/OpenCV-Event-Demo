@@ -9,8 +9,9 @@ __logger = get_logger(__name__)
 # For raspberry pi
 if platform.system() == "Linux":
     import RPi.GPIO as GPIO
-
     GPIO.setmode(GPIO.BCM)
+    GPIO.setup(20, GPIO.OUT)
+    GPIO.setup(21, GPIO.OUT)
 
 
 def init_arm(arm: MyCobot):
