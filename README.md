@@ -15,8 +15,9 @@
    pip install -r reqirements.txt
    ```
 
-4. 运行测试，排除简单错误
-5. 运行`main.py`
+4. 运行测试`test6_serial_port.py`获取串口号，并更新config
+5. 运行其他测试，根据测试结果微调config配置（详细见docs/doc.md)
+6. 运行`main.py`
 
 ## Memo
 
