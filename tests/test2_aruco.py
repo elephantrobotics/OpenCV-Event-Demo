@@ -1,5 +1,9 @@
-from camera import OrbbecCamera
-from aruco_detector import ArucoDetector
+import sys
+sys.path.append("..")
+sys.path.append(".")
+
+from core.camera import OrbbecCamera
+from core.aruco_detector import ArucoDetector
 import cv2
 import time
 
