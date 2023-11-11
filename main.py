@@ -11,7 +11,7 @@ coords_transformer = CoordCalc(
     plane_frame_size_ratio,
 )
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cam = OrbbecCamera(0)
     aruco_detector = ArucoDetector()
     logger = get_logger(__name__)
@@ -58,7 +58,9 @@ if __name__ == '__main__':
         ids, corners = aruco_detector.detect_marker_corners(color_frame)
 
         if not (len(ids) != 0 and len(ids) == len(corners)):
-            logger.info("Not detecting any aruco marker within the zone. try again next frame.")
+            logger.info(
+                "Not detecting any aruco marker within the zone. try again next frame."
+            )
             time.sleep(frame_interval)
             continue
 
@@ -84,7 +86,11 @@ if __name__ == '__main__':
         x, y = np.mean(corner, axis=0)
 
         x, y, z = coords_transformer.frame2real(x, y)
-        z += (floor_depth - mean_depth)
+        z += floor_depth - mean_depth
+
+        x += final_coord_offset[0]
+        y += final_coord_offset[1]
+        z += final_coord_offset[2]
 
         logger.info(f"Target position: {x},{y},{z}")
 
